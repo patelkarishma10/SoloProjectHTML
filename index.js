@@ -25,8 +25,14 @@ function getAUser() {
         .then((data) => {
             const username = data.username;
             const email = data.email;
+            const password = data.password;
+            const ID = data.id;
             document.getElementById("accountUsername").innerHTML = username;
             document.getElementById("accountEmail").innerHTML = email;
+            document.getElementById("updateId").value = ID;
+            document.getElementById("updateEmail").value = email;
+            document.getElementById("updateUsername").value = username;
+            document.getElementById("updatePassword").value = password;
             console.log(data);
         })
         .catch((error) => console.log(error.message));
@@ -56,5 +62,20 @@ function deleteAccount() {
             console.log(data);
         })
         .catch((error) => console.log(error.message));
+    return false;
+}
+
+function updateAccount() {
+    let id = Number(document.getElementById("updateId").value);
+    let updateAcc = {
+        username: document.getElementById("updateUsername").value,
+        password: document.getElementById("updatePassword").value,
+        email: document.getElementById("updateEmail").value
+    };
+    makeRequest("PUT", `http://localhost:8080/SoloProject/api/user/updateUser/${id}`, updateAcc)
+        .then((data) => {
+            console.log(data);
+        }).catch((error) => console.log(error.message));
+
     return false;
 }
