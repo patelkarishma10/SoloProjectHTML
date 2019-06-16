@@ -20,30 +20,38 @@ function makeRequest(method, url, body) {
 }
 
 function getAccountDetails() {
-    let username = sessionStorage.getItem('username');
-    let email = sessionStorage.getItem('email');
     let ID = sessionStorage.getItem('ID');
-    let password = sessionStorage.getItem('password');
+    makeRequest("GET", `http://localhost:8080/SoloProject/api/user/getAUser/${ID}`)
+        .then((data) => {
+            const username = data.username;
+            const email = data.email;
+            const password = data.password;
+            const ID = data.id;
+            let myUsername = document.createElement('span');
+            myUsername.innerHTML = username;
 
-    let myUsername = document.createElement('span');
-    myUsername.innerHTML = username;
+            let myEmail = document.createElement('span');
+            myEmail.innerHTML = email;
 
-    let myEmail = document.createElement('span');
-    myEmail.innerHTML = email;
+            let myID = document.createElement('span');
+            myID.innerHTML = ID;
 
-    let myID = document.createElement('span');
-    myID.innerHTML = ID;
+            const container = document.getElementById('displayDetails');
+            container.appendChild(myUsername);
+            container.appendChild(myEmail);
+            container.appendChild(myID);
 
-    const container = document.getElementById('displayDetails');
-    container.appendChild(myUsername);
-    container.appendChild(myEmail);
-    container.appendChild(myID);
-
-    document.getElementById("updateId").value = ID;
-    document.getElementById("updateEmail").value = email;
-    document.getElementById("updateUsername").value = username;
-    document.getElementById("updatePassword").value = password;
+            document.getElementById("updateId").value = ID;
+            document.getElementById("updateEmail").value = email;
+            document.getElementById("updateUsername").value = username;
+            document.getElementById("updatePassword").value = password;
+            console.log(data);
+        })
+        .catch((error) => console.log(error.message));
+    return false;
 }
+
+
 
 function deleteAccount() {
     let id = Number(document.getElementById("deleteAcc").value);

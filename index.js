@@ -23,20 +23,8 @@ function getAUser() {
     let id = Number(document.getElementById("anAcc").value);
     makeRequest("GET", `http://localhost:8080/SoloProject/api/user/getAUser/${id}`)
         .then((data) => {
-            const username = data.username;
-            const email = data.email;
-            const password = data.password;
             const ID = data.id;
-            //            document.getElementById("accountUsername").innerHTML = username;
-            //            document.getElementById("accountEmail").innerHTML = email;
-            //            document.getElementById("updateId").value = ID;
-            //            document.getElementById("updateEmail").value = email;
-            //            document.getElementById("updateUsername").value = username;
-            //            document.getElementById("updatePassword").value = password;
-            sessionStorage.setItem('username', username);
-            sessionStorage.setItem('email', email);
             sessionStorage.setItem('ID', ID);
-            sessionStorage.setItem('password', password);
             window.location.href = 'homepage.html';
             console.log(data);
         })
