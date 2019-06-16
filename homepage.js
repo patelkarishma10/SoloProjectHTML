@@ -6,8 +6,16 @@ function getUserFilms() {
         .then((data) => {
 
             const containerDiv = document.getElementById('favFilmsDiv');
-
+            let tableHeading = document.createElement('h1');
+            tableHeading.id = "tableHeading";
+            tableHeading.innerHTML = "Your favourite films";
+            containerDiv.appendChild(tableHeading);
+            if (document.contains(document.getElementById("table1"))) {
+                containerDiv.removeChild(document.getElementById("table1"));
+                containerDiv.removeChild(document.getElementById("tableHeading"));
+            }
             let container = document.createElement('table');
+            container.id = "table1";
             containerDiv.appendChild(container);
             let tableHeadingTitle = document.createElement('th');
             tableHeadingTitle.innerHTML = "Tilte";
@@ -17,9 +25,6 @@ function getUserFilms() {
             container.appendChild(tableHeadingRemoveFilm);
 
             for (let i = 0; i < data.films.length; i++) {
-                if (document.contains(document.getElementById("row" + i))) {
-                    container.removeChild(document.getElementById("row" + i));
-                }
                 let myRow = document.createElement('tr');
                 myRow.id = "row" + i;
                 container.appendChild(myRow);

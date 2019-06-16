@@ -44,6 +44,7 @@ form {
 table {
     border-collapse: collapse;
     width: 50%;
+    margin: auto;
 }
 
 th,
@@ -53,7 +54,7 @@ td {
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2
+    background-color: #dce1ea;
 }
 
 th {
