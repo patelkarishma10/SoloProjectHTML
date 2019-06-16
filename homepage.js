@@ -6,7 +6,9 @@ function getUserFilms() {
         .then((data) => {
 
             const containerDiv = document.getElementById('favFilmsDiv');
-
+            let tableHeading = document.createElement('h1');
+            tableHeading.innerHTML = "Your favourite films";
+            containerDiv.appendChild(tableHeading);
             let container = document.createElement('table');
             containerDiv.appendChild(container);
             let tableHeadingTitle = document.createElement('th');
