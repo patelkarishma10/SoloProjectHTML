@@ -6,44 +6,12 @@
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
-<body>
-    <script src="index.js"></script>
-    <div>
-        <h1>Sign in with user id</h1>
-        <form onsubmit="return getAUser()">
-            <label for="anAcc" id="anAccLable">Enter id of the user you want to search for: </label>
-            <input type="text" id="anAcc" class="form-control" name="anAcc" required>
-            <br>
-            <input type="submit" id="signIn" class="btn btn-primary" value="get an account">
-            <br>
-            <p>
-                <span>Account Found:</span>
-                <span id="accountUsername"></span>
-                <span id="accountEmail"></span>
-            </p>
-        </form>
-    </div>
-    <br>
-    <div>
-        <h1>Create an Account</h1>
-        <form onsubmit="return createAccount()">
+<body onload="getAccountDetails()">
+    <!--    <script src="index.js"></script>-->
+    <script src="account.js"></script>
+    <p id="displayDetails">
+    </p>
 
-            <br><br>
-            <label for="accUsername" id="accUsernameLabel">Username: </label>
-            <input type="text" id="accUsername" class="form-control" name="accUsername" required>
-            <br>
-            <label for="accPassword" id="accPasswordLabel">Password: </label>
-            <input type="password" id="accPassword" class="form-control" name="accPassword" required>
-            <br>
-            <label for="accEmail" id="accEmailLable">Email: </label>
-            <input type="email" id="accEmail" class="form-control" name="accEmail" required>
-            <br>
-            <input type="submit" class="btn btn-primary" value="create Account">
-
-        </form>
-    </div>
-    <br>
-<!--
     <div>
         <h1>Delete Account </h1>
         <form onsubmit="return deleteAccount()">
@@ -76,8 +44,10 @@
             <input type="submit" class="btn btn-primary" value="update Account">
 
         </form>
-    </div>-->
+    </div>
 
+
+    <button id="Account Details" onclick="goToAccountPage()">Account Details</button>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
