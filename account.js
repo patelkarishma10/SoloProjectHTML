@@ -54,10 +54,12 @@ function getAccountDetails() {
 
 
 function deleteAccount() {
-    let id = Number(document.getElementById("deleteAcc").value);
-    makeRequest("DELETE", `http://localhost:8080/SoloProject/api/user/deleteUser/${id}`)
+    let ID = sessionStorage.getItem('ID');
+    makeRequest("DELETE", `http://localhost:8080/SoloProject/api/user/deleteUser/${ID}`)
         .then((data) => {
             console.log(data);
+            sessionStorage.clear();
+            window.location.href = 'index.html';
         })
         .catch((error) => console.log(error.message));
     return false;

@@ -26,7 +26,6 @@ function getAUser() {
             const ID = data.id;
             sessionStorage.setItem('ID', ID);
             window.location.href = 'homepage.html';
-            console.log(data);
         })
         .catch((error) => console.log(error.message));
     return false;
@@ -41,34 +40,17 @@ function createAccount() {
     };
     makeRequest("POST", "http://localhost:8080/SoloProject/api/user/createUser", newAcc)
         .then((data) => {
-            console.log(data);
+            const ID = data.id;
+            sessionStorage.setItem('ID', ID);
+            makeRequest("GET", `http://localhost:8080/SoloProject/api/user/getAUser/${ID}`)
+                .then((data) => {
+                    window.location.href = 'homepage.html';
+                })
+                .catch((error) => console.log(error.message));
         })
         .catch((error) => console.log(error.message));
 
+
+
     return false;
 }
-
-//function deleteAccount() {
-//    let id = Number(document.getElementById("deleteAcc").value);
-//    makeRequest("DELETE", `http://localhost:8080/SoloProject/api/user/deleteUser/${id}`)
-//        .then((data) => {
-//            console.log(data);
-//        })
-//        .catch((error) => console.log(error.message));
-//    return false;
-//}
-//
-//function updateAccount() {
-//    let id = Number(document.getElementById("updateId").value);
-//    let updateAcc = {
-//        username: document.getElementById("updateUsername").value,
-//        password: document.getElementById("updatePassword").value,
-//        email: document.getElementById("updateEmail").value
-//    };
-//    makeRequest("PUT", `http://localhost:8080/SoloProject/api/user/updateUser/${id}`, updateAcc)
-//        .then((data) => {
-//            console.log(data);
-//        }).catch((error) => console.log(error.message));
-//
-//    return false;
-//}
