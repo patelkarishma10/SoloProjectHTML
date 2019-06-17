@@ -52,9 +52,3 @@ function getUserFilms() {
 
 
 }
-
-function goToAccountPage() {
-
-    window.location.href = 'account.html';
-    return false;
-}
