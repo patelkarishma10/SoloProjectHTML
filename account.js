@@ -51,8 +51,6 @@ function getAccountDetails() {
     return false;
 }
 
-
-
 function deleteAccount() {
     let ID = sessionStorage.getItem('ID');
     makeRequest("DELETE", `http://localhost:8080/SoloProject/api/user/deleteUser/${ID}`)
