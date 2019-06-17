@@ -52,8 +52,5 @@ function createAccount() {
                 .catch((error) => console.log(error.message));
         })
         .catch((error) => console.log(error.message));
-
-
-
     return false;
 }
