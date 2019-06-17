@@ -27,7 +27,10 @@ function getAUser() {
             sessionStorage.setItem('ID', ID);
             window.location.href = 'homepage.html';
         })
-        .catch((error) => console.log(error.message));
+        .catch((error) => {
+            console.log(error.message)
+            document.getElementById("systemResponse").innerHTML = "Id not found";
+        });
     return false;
 }
 
