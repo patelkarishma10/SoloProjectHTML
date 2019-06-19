@@ -2,7 +2,7 @@ function getUserFilms() {
 
     let ID = sessionStorage.getItem('ID');
     const container = document.getElementById('displayDetails');
-    makeRequest("GET", `http://localhost:8080/SoloProject/api/user/getAUser/${ID}`)
+    makeRequest("GET", path + `user/getAUser/${ID}`)
         .then((data) => {
 
             const containerDiv = document.getElementById('favFilmsDiv');

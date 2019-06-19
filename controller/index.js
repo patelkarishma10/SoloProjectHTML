@@ -1,6 +1,6 @@
 function getAUser() {
     let id = Number(document.getElementById("anAcc").value);
-    makeRequest("GET", `http://localhost:8080/SoloProject/api/user/getAUser/${id}`)
+    makeRequest("GET", path + `user/getAUser/${id}`)
         .then((data) => {
             const ID = data.id;
             sessionStorage.setItem('ID', ID);
@@ -20,11 +20,11 @@ function createAccount() {
         password: document.getElementById("accPassword").value,
         email: document.getElementById("accEmail").value
     };
-    makeRequest("POST", "http://localhost:8080/SoloProject/api/user/createUser", newAcc)
+    makeRequest("POST", path + "user/createUser", newAcc)
         .then((data) => {
             const ID = data.id;
             sessionStorage.setItem('ID', ID);
-            makeRequest("GET", `http://localhost:8080/SoloProject/api/user/getAUser/${ID}`)
+            makeRequest("GET", path + `user/getAUser/${ID}`)
                 .then((data) => {
                     window.location.href = 'homepage.html';
                 })
