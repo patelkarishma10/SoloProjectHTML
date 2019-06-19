@@ -3,12 +3,14 @@
 
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="../view/index.css">
 </head>
 
 <body onload="getAccountDetails()">
-    <script src="account.js"></script>
-    <script src="signout.js"></script>
+    <script src="../controller/makeRequest.js"></script>
+    <script src="../controller/account.js"></script>
+    <script src="../controller/signout.js"></script>
+    <script src="../controller/constants.js"></script>
     <button id="homepage" class="btn btn-primary" onclick="window.location.href = 'homepage.html';">Home Page</button>
     <button id="sign out" class="btn btn-primary" onclick="signOut()">Sign Out</button>
 
